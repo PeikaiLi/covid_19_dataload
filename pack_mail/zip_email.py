@@ -22,7 +22,7 @@ def make_zip(source_dir, output_filename):
         print(parents, file_list)
         for file in file_list:
             file_path = os.path.join(parents, file)
-            f.write(file_path)
+            f.write(file_path, arcname=file)
     f.close()
 
 
