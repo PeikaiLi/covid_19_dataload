@@ -16,6 +16,7 @@ import json
 import time
 import logging
 import datetime
+from pack_mail.zip_email import make_zip, send_mail
 
 
 # Load environment parameters
@@ -174,3 +175,7 @@ class Listener:
 if __name__ == '__main__':
     listener = Listener()
     listener.run()
+
+    make_zip('json', 'json.zip')
+    send_mail(['jaminmei.cn@gmail.com'])
+
