@@ -175,7 +175,7 @@ class Listener:
 if __name__ == '__main__':
     listener = Listener()
     listener.run()
-
-    make_zip('json', 'json.zip')
-    send_mail(['jaminmei.cn@gmail.com'])
+    dirs =  os.path.join(os.path.split(os.path.realpath(__file__))[0], 'json')
+    make_zip(dirs, dirs+'.zip')
+    send_mail(dirs+'.zip', ['jaminmei.cn@gmail.com', 'peikai_li@163.com'])
 

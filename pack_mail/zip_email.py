@@ -26,7 +26,7 @@ def make_zip(source_dir, output_filename):
     f.close()
 
 
-def send_mail(recv):
+def send_mail(dir_, recv):
     today = datetime.datetime.today().strftime('%Y-%m-%d')
     # 创建一个带附件的邮件实例
     message = MIMEMultipart()
@@ -39,7 +39,7 @@ def send_mail(recv):
     attr2 = MIMEText('file attachment test', 'plain', 'utf-8')
     message.attach(attr2)
     # 附件
-    zipFile = f'json.zip'
+    zipFile = dir_
     zipApart = MIMEApplication(open(zipFile, 'rb').read())
     zipApart.add_header('Content-Disposition', 'attachment', filename=zipFile)
     message.attach(zipApart)
